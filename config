@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 export HEADLESS_SHELL_IMAGE=${HEADLESS_SHELL_IMAGE:="chromedp/headless-shell"}
 export HEADLESS_SHELL_IMAGE_VERSION=${HEADLESS_SHELL_IMAGE_VERSION:="latest"}
-export HEADLESS_SHELL_IMAGE_ROOT=${HEADLESS_SHELL_IMAGE_ROOT:="/var/lib/dokku/services/headlessshell"}
+export HEADLESS_SHELL_ROOT=${HEADLESS_SHELL_ROOT:="/var/lib/dokku/services/headlessshell"}
 export HEADLESS_SHELL_HOST_ROOT=${HEADLESS_SHELL_HOST_ROOT:=$HEADLESS_SHELL_ROOT}
 
 export PLUGIN_UNIMPLEMENTED_SUBCOMMANDS=("backup" "backup-auth" "backup-deauth" "backup-schedule" "backup-schedule-cat" "backup-set-encryption" "backup-unschedule" "backup-unset-encryption" "clone" "connect" "export" "import")
