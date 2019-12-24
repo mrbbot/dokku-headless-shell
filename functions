@@ -33,8 +33,8 @@ service_create() {
   touch "$LINKS_FILE"
 
   [[ -n "$SERVICE_CUSTOM_ENV" ]] && ELASTICSEARCH_CUSTOM_ENV="$SERVICE_CUSTOM_ENV"
-  if [[ -n $CHROME_CUSTOM_ENV ]]; then
-    echo "$CHROME_CUSTOM_ENV" | tr ';' "\n" > "$SERVICE_ROOT/ENV"
+  if [[ -n $HEADLESS_SHELL_CUSTOM_ENV ]]; then
+    echo "$HEADLESS_SHELL_CUSTOM_ENV" | tr ';' "\n" > "$SERVICE_ROOT/ENV"
   else
     echo "" > "$SERVICE_ROOT/ENV"
   fi
@@ -47,7 +47,7 @@ service_create_container() {
   local SERVICE_HOST_ROOT="$PLUGIN_DATA_HOST_ROOT/$SERVICE"
   local SERVICE_NAME="$(get_service_name "$SERVICE")"
 
-  ID=$(docker run --name "$SERVICE_NAME" --env-file="$SERVICE_ROOT/ENV" -d --restart always --label dokku=service --label dokku.service=chrome "$PLUGIN_IMAGE:$PLUGIN_IMAGE_VERSION")
+  ID=$(docker run --name "$SERVICE_NAME" --env-file="$SERVICE_ROOT/ENV" -d --restart always --label dokku=service --label dokku.service=headlessshell "$PLUGIN_IMAGE:$PLUGIN_IMAGE_VERSION")
   echo "$ID" > "$SERVICE_ROOT/ID"
 
   dokku_log_verbose_quiet "Waiting for container to be ready"

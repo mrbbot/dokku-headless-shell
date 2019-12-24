@@ -1,4 +1,4 @@
 [plugin]
-description = "dokku chrome service plugin"
+description = "dokku headless shell service plugin"
 version = "0.0.1"
 [plugin.config]

@@ -1,4 +1,0 @@
-dist: trusty
-language: bash
-install: make setup
-script: make test
